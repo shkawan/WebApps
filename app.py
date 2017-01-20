@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from bottle import route,run,request,response,redirect,default_app
-import requests
+# import requests
 import os
 
 @route('/hello/:name')
