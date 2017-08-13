@@ -15,5 +15,5 @@ def _datetime():
   return json.dumps( { 'datetime' : datetime.datetime.now().strftime("%Y/%m/%dT%H:%M:%S") } )
 
 if __name__ == '__main__':
-  port = os.environ.get("APP_PORT", 8080)
+  port = os.environ.get("APP_PORT", 28000)
   run(host='0.0.0.0', port=port, reloader=True)
