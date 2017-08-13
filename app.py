@@ -4,6 +4,7 @@ from bottle import route,run,request,response,redirect,default_app
 # import requests
 import os
 import datetime
+import json
 
 @route('/hello/:name')
 def hello(name):
@@ -11,7 +12,7 @@ def hello(name):
 
 @route('/datetime')
 def _datetime():
-  return datetime.datetime.now().strftime("%Y/%m/%dT%H:%M:%S")
+  return json.dumps( { 'datetime' : datetime.datetime.now().strftime("%Y/%m/%dT%H:%M:%S") } )
 
 if __name__ == '__main__':
   port = os.environ.get("APP_PORT", 8080)
