@@ -1,2 +1,2 @@
 # App Services for test
-This is test on Azure
+This is a test on Azure
