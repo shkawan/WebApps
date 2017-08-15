@@ -7,12 +7,18 @@ import datetime
 import json
 
 @route('/hello/:name')
-def hello(name):
+def _hello(name):
   return "<h1>Hello {0}</h1>".format(name)
 
 @route('/datetime')
 def _datetime():
   return json.dumps( { 'datetime' : datetime.datetime.now().strftime("%Y/%m/%dT%H:%M:%S") } )
+
+@route('/env/:name')
+def __env(name):
+  env = os.environ
+  value = env.get(name)
+  return json.dumps( { name : value } )
 
 if __name__ == '__main__':
   port = os.environ.get("APP_PORT", 28000)
