@@ -6,3 +6,5 @@ def test_func001():
 def test_func002():
   ok_("test func is ok")
 
+def test_func003():
+  ok_(1)
