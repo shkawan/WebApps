@@ -20,6 +20,11 @@ def _env(name):
   value = env.get(name)
   return json.dumps( { name : value } )
 
+@route('/')
+def _root():
+  env = os.environ
+  return "これは/です"
+
 if __name__ == '__main__':
   port = os.environ.get("APP_PORT", 28000)
   run(host='0.0.0.0', port=port, reloader=True)
