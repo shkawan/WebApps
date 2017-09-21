@@ -23,7 +23,7 @@ def _env(name):
 @route('/')
 def _root():
   env = os.environ
-  return "これはデータです"
+  return "これは標準です"
 
 if __name__ == '__main__':
   port = os.environ.get("APP_PORT", 28000)
