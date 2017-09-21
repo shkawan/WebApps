@@ -15,7 +15,7 @@ def _datetime():
   return json.dumps( { 'datetime' : datetime.datetime.now().strftime("%Y/%m/%dT%H:%M:%S") } )
 
 @route('/env/:name')
-def __env(name):
+def _env(name):
   env = os.environ
   value = env.get(name)
   return json.dumps( { name : value } )
