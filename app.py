@@ -8,16 +8,19 @@ import json
 
 @route('/hello/:name')
 def _hello(name):
+  response.content_type = 'application/json'
   return "<h1>Hello {0}</h1>".format(name)
 
 @route('/datetime')
 def _datetime():
+  response.content_type = 'application/json'
   return json.dumps( { 'datetime' : datetime.datetime.now().strftime("%Y/%m/%dT%H:%M:%S") } )
 
 @route('/env/:name')
 def _env(name):
   env = os.environ
   value = env.get(name)
+  response.content_type = 'application/json'
   return json.dumps( { name : value } )
 
 @route('/')
