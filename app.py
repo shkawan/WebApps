@@ -8,7 +8,6 @@ import json
 
 @route('/hello/:name')
 def _hello(name):
-  response.content_type = 'application/json'
   return "<h1>Hello {0}</h1>".format(name)
 
 @route('/datetime')
