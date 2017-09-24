@@ -24,9 +24,14 @@ def _env(name):
 
 @route('/')
 def _root():
-  env = os.environ
   return "これは標準です"
+
+@route('/test')
+def _test():
+  return "ok"
 
 if __name__ == '__main__':
   port = os.environ.get("APP_PORT", 28000)
   run(host='0.0.0.0', port=port, reloader=True)
+
+
