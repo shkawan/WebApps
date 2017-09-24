@@ -10,14 +10,15 @@ RUN apt-get install curl -y
 RUN apt-get install vim -y
 RUN apt-get install git -y
 
-RUN git clone https://github.com/shkawan/WebApps.git
-COPY docker-exec.sh webapps
+COPY dummy tmp
+RUN git clone https://github.com/shkawan/WebApps.git webapps
+
+WORKDIR /webapps
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-WORKDIR /webapps
 
 # ログ用のディレクトリのmount
 VOLUME /docker
 
-CMD ["./docker-exec.sh"]
+CMD ["gunicorn", "-w 2", "-b 0.0.0.0:80", "app:app", "--log-level=info", "--log-file=/docker/gunicorn.log", "--access-logfile=/docker/gunicorn-access.log"]
 

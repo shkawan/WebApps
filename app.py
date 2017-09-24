@@ -30,8 +30,9 @@ def _root():
 def _test():
   return "ok"
 
+
+app = bottle.default_app()
+
 if __name__ == '__main__':
   port = os.environ.get("APP_PORT", 28000)
   run(host='0.0.0.0', port=port, reloader=True)
-
-
