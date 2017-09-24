@@ -31,7 +31,7 @@ def _test():
   return "ok"
 
 
-app = bottle.default_app()
+app = default_app()
 
 if __name__ == '__main__':
   port = os.environ.get("APP_PORT", 28000)
