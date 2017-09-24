@@ -10,19 +10,14 @@ RUN apt-get install curl -y
 RUN apt-get install vim -y
 RUN apt-get install git -y
 
-RUN apt-get install openssh-server -y
-COPY sshd_config /etc/ssh
-# RUN /etc/init.d/ssh start
-
-RUN git clone git@github.com:shkawan/WebApps.git webapps
+RUN git clone https://github.com/shkawan/WebApps.git
 COPY docker-exec.sh webapps
-WORKDIR /webapps
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+WORKDIR /webapps
 
 # ログ用のディレクトリのmount
 VOLUME /docker
 
-
-CMD [ "./docker-exec.sh" ]
+CMD ["./docker-exec.sh"]
 
